@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuctionService", "src\AuctionService\AuctionService.csproj", "{2F1C5F34-55C6-4ED6-BACA-D3BF8C3A2D93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchService", "src\SearchService\SearchService.csproj", "{16B10011-F35D-450C-B4BA-33C0476F4409}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchService", "src\SearchService\SearchService.csproj", "{16B10011-F35D-450C-B4BA-33C0476F4409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "src\Contracts\Contracts.csproj", "{BA5D64D4-8F46-43E5-BA15-B3EF9683E8E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{16B10011-F35D-450C-B4BA-33C0476F4409}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16B10011-F35D-450C-B4BA-33C0476F4409}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16B10011-F35D-450C-B4BA-33C0476F4409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA5D64D4-8F46-43E5-BA15-B3EF9683E8E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA5D64D4-8F46-43E5-BA15-B3EF9683E8E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA5D64D4-8F46-43E5-BA15-B3EF9683E8E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA5D64D4-8F46-43E5-BA15-B3EF9683E8E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
