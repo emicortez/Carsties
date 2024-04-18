@@ -11,17 +11,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddHttpClient<AuctionSvcHttpClient>().AddPolicyHandler(GetPolicy());
+
+// Adding MasstransitConfiguration
 builder.Services.AddMassTransit(x =>
 {
+    // Set which messages will be consumed (where to find them)
     x.AddConsumersFromNamespaceContaining<AuctionCreatedConsumer>();
 
+    // Changing the default name of our consumers (Search --> prefix is going to use in front of the queue name)
     x.SetEndpointNameFormatter(new KebabCaseEndpointNameFormatter("search", false));
 
     x.UsingRabbitMq((context, cfg) =>
     {
+        // Retry policies when there's an error consuming a message (for especific endpoint)
         cfg.ReceiveEndpoint("search-auction-created", e =>
         {
-            e.UseMessageRetry(r => r.Interval(5, 5));
+            e.UseMessageRetry(r => r.Interval(5, 5)); // 5 times and wait 5 seconds
 
             e.ConfigureConsumer<AuctionCreatedConsumer>(context);
         });
