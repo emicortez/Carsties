@@ -31,6 +31,11 @@ namespace IdentityService
 
                     // see https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/
                     //options.EmitStaticAudienceClaim = true;
+
+                    if(builder.Environment.IsEnvironment("Docker"))
+                    {
+                        options.IssuerUri = "identity-svc";
+                    }
                 })
                 .AddInMemoryIdentityResources(Config.IdentityResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
