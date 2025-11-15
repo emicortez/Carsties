@@ -1,0 +1,16 @@
+﻿services:
+  auctiondb:
+    container_name: auctiondb
+    image: postgres:17
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=auctions
+    restart: always
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_auctions:/var/lib/postgresql/data
+
+volumes:
+  postgres_auctions:
