@@ -10,7 +10,14 @@
     ports:
       - "5433:5432"
     volumes:
-      - postgres_auctions:/var/lib/postgresql/data
+      - /var/lib/postgresql/data
 
-volumes:
-  postgres_auctions:
+  mongodb:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=mongopw
+    ports:
+      - 27017:27017
+    volumes:
+      - /var/lib/mongodb/data
